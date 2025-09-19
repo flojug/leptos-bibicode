@@ -5,6 +5,8 @@
 @import "tailwindcss/preflight.css" layer(custom-base);
 @import "tailwindcss/utilities.css" layer(custom-utilities);
 
+@theme {  --aspect-retro: 4 / 3; }
+
 html {
     background-color: #eee;
 }
@@ -12,7 +14,7 @@ html {
 div#title {
     padding: 10px;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 3em;
 }
 
 div#content {
@@ -41,18 +43,20 @@ div#second div {
 div#first div span,
 div#second div span {
     display: inline-flex;
-    width: 15%;
+    width: 25%;
     color: white;
     font-weight: bold;
+    font-size: 2em;
 }
 
 
 div#first div input,
 div#second div input {
-    width: 85%;
+    width: 75%;
     border: 1px solid black;
     padding: 2px;
     font-weight: bold;
+    font-size: 2em;
 }
 
 div#first div input.red,

@@ -54,9 +54,9 @@ fn convert(based_number: NumberWithBase, tobase: bibicode::NumeralSystem) -> (St
 fn App() -> impl IntoView {
 
     let mut values: Vec<(i32, Vec<String>)> = vec![];
-    let lettres = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+    let lettres = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    for i in 2..=16 {
+    for i in 2..=36 {
         values.push((i, vec![]));
         for j in 0..i {
             values[(i-2) as usize].1.push(String::from(lettres[j as usize]));
@@ -66,8 +66,8 @@ fn App() -> impl IntoView {
     let (number, set_number) = signal(NumberWithBase{ base:bibicode::NumeralSystem::new_from_tag("dec").unwrap(), valeur:"42".to_string() });
 
     let values2 = vec![
-        ("Décimal", "dec"),
-        ("Héxadécimal", "hex"),
+        ("Decimal", "dec"),
+        ("Hexadécimal", "hex"),
         ("Octal", "oct"),
         ("Binary", "bin"),
         ("Bibicode", "bibi"),
@@ -107,9 +107,9 @@ fn App() -> impl IntoView {
                     </div>
                 })
                 .collect_view()}
-            </div>
 
-            <div id="second">
+
+
             {values.into_iter()
                 .map(|n| {
                     let n2 = n.clone();
