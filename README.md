@@ -1,4 +1,4 @@
 
-Demonstration of bibicode usage with leptps.
+Demonstration of bibicode usage with leptos.
 
 See result here : https://flojug.github.io/demo-leptos-bibicode/
