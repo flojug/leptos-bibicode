@@ -1,0 +1,62 @@
+
+@import 'tailwindcss/base';
+@layer theme, custom-base, custom-components, custom-utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(custom-base);
+@import "tailwindcss/utilities.css" layer(custom-utilities);
+
+html {
+    background-color: #eee;
+}
+
+div#title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+div#content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    width: 100%;
+}
+
+div#content div {
+    flex-grow: 1;
+
+}
+
+div#content div div {
+    padding: 5px;
+    margin: 5px;
+
+}
+
+div#first div,
+div#second div {
+    background-color: orange;
+}
+
+div#first div span,
+div#second div span {
+    display: inline-flex;
+    width: 15%;
+    color: white;
+    font-weight: bold;
+}
+
+
+div#first div input,
+div#second div input {
+    width: 85%;
+    border: 1px solid black;
+    padding: 2px;
+    font-weight: bold;
+}
+
+div#first div input.red,
+div#second div input.red {
+    background-color: palevioletred;
+    color: white;
+}

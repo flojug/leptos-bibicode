@@ -1,0 +1,12 @@
+[package]
+name = "leptos-bibicode"
+version = "0.0.1"
+edition = "2024"
+authors = ["Florent Jugla <florent@jugla.name>"]
+description = "An example using bibicode crate with leptos."
+repository = "https://github.com/flojug/leptos-bibicode"
+
+[dependencies]
+console_error_panic_hook = "0.1.7"
+leptos = { version = "0.8.2", features = ["csr"] }
+bibicode = { version = "0.3.3" }
