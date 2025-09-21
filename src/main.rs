@@ -3,9 +3,6 @@ extern crate bibicode;
 
 use leptos::mount::mount_to_body;
 use leptos::prelude::*;
-use leptos::ev::*;
-use leptos::html::*;
-use leptos::logging;
 
 fn main()  {
     console_error_panic_hook::set_once();
@@ -30,9 +27,9 @@ fn convert(based_number: NumberWithBase, tobase: bibicode::NumeralSystem) -> (St
     let mut val = based_number.valeur.clone();
     loop {
         let val_b10 = frombase_to_dec.swap(val.as_str());
-        if (val_b10.is_ok()) {
+        if val_b10.is_ok() {
             let val_bdest = dec_to_tobase.swap(val_b10.unwrap().as_str());
-            if (val_bdest.is_ok()) {
+            if val_bdest.is_ok() {
                 break (val_bdest.unwrap(), false);
             }
         }
@@ -76,21 +73,21 @@ fn App() -> impl IntoView {
     ];
 
     view! {
-
         <main>
 
-        <div id="title">
-        <p>Multi converter</p>
+        <div id="title" class="text-4xl md:text-6xl">
+            <p>Multi base converter</p>
         </div>
 
-        <div id="content">
+        <div id="content" class="flex flex-col md:flex-row">
 
-            <div id="first">
+        <div>
+
             {values2.into_iter()
                 .map(|n| view! {
-                    <div>
-                        <span>{n.0}</span>
-                        <input type="text"
+                    <div class="flex flex-row">
+                        <span class="text-2xl md:text-4xl w-1/4 md:w-1/4 ">{n.0}</span>
+                        <input type="text" class="text-2xl md:text-4xl w-3/4 md:w-3/4 "
                             on:input:target=move |ev| {
                                 let frombase = bibicode::NumeralSystem::new_from_tag(n.1).unwrap();
                                 set_number.set(NumberWithBase{ base:frombase, valeur:ev.target().value() });
@@ -108,7 +105,9 @@ fn App() -> impl IntoView {
                 })
                 .collect_view()}
 
+        </div>
 
+        <div>
 
             {values.into_iter()
                 .map(|n| {
@@ -116,9 +115,9 @@ fn App() -> impl IntoView {
                     let n3 = n.clone();
                     let n4 = n.clone();
                     view! {
-                        <div>
-                            <span>Base {n.0}</span>
-                            <input type="text"
+                        <div class="flex flex-row">
+                            <span class="text-2xl md:text-4xl w-1/4 md:w-1/4">Base {n.0}</span>
+                            <input type="text" class="text-2xl md:text-4xl w-3/4 md:w-3/4"
                                 on:input:target=move |ev| {
                                     let frombase = bibicode::NumeralSystem::new_from_strings("".to_string(), vec![n2.1.clone()]).unwrap();
                                     set_number.set(NumberWithBase{ base:frombase, valeur:ev.target().value() });
@@ -136,8 +135,8 @@ fn App() -> impl IntoView {
                     }
                 })
                 .collect_view()}
-            </div>
 
+            </div>
 
         </div>
 

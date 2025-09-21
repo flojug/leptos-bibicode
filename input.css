@@ -1,66 +1,49 @@
 
-@import 'tailwindcss/base';
+/*
 @layer theme, custom-base, custom-components, custom-utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(custom-base);
 @import "tailwindcss/utilities.css" layer(custom-utilities);
+*/
 
-@theme {  --aspect-retro: 4 / 3; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind theme;
+@tailwind flex;
+
+
+@theme {
+
+}
 
 html {
     background-color: #eee;
 }
 
-div#title {
-    padding: 10px;
-    font-weight: bold;
-    font-size: 3em;
-}
-
-div#content {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    width: 100%;
-}
-
-div#content div {
-    flex-grow: 1;
-
-}
 
 div#content div div {
     padding: 5px;
     margin: 5px;
-
-}
-
-div#first div,
-div#second div {
     background-color: orange;
 }
 
-div#first div span,
-div#second div span {
-    display: inline-flex;
-    width: 25%;
+
+div#content div div span,
+div#content div div span {
     color: white;
     font-weight: bold;
-    font-size: 2em;
 }
 
 
-div#first div input,
-div#second div input {
-    width: 75%;
+div#content div div input,
+div#content div div input {
     border: 1px solid black;
     padding: 2px;
-    font-weight: bold;
-    font-size: 2em;
 }
 
-div#first div input.red,
-div#second div input.red {
+div#content div div input.red,
+div#content div div input.red {
     background-color: palevioletred;
     color: white;
 }
